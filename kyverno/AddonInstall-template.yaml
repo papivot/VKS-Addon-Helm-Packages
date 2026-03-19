@@ -1,0 +1,15 @@
+apiVersion: addons.kubernetes.vmware.com/v1alpha1
+kind: AddonInstall
+metadata:
+  name: cluster-kyverno
+  namespace: NAMESPACE_PLACEHOLDER
+spec:
+  addonRef:
+    name: kyverno
+    namespace: vmware-system-vks-public
+  clusters:
+  - selector:
+      matchLabels:
+        cluster.x-k8s.io/cluster-name: CLUSTER_NAME_PLACEHOLDER
+  crossNamespaceSelection: Blocked
+  stopMatchingBehavior: Delete
